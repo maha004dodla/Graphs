@@ -29,14 +29,14 @@ void BFS(int mat[][m],bool visited[][m],int r,int c)
 		q.pop();
 		for (int i=0; i<4; i++) 
 		{
-            int adjx=a+dRow[i];
-            int adjy=b+dCol[i];
-            if(valid(visited,adjx,adjy)) 
-            {
-                q.push({adjx,adjy});
-                visited[adjx][adjy] = true;
-            }
-        }
+	            int adjx=a+dRow[i];
+	            int adjy=b+dCol[i];
+	            if(valid(visited,adjx,adjy)) 
+	            {
+	                q.push({adjx,adjy});
+	                visited[adjx][adjy] = true;
+	            }
+	        }
 	}
 }
 int main()
