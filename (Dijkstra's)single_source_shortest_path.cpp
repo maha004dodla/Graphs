@@ -45,11 +45,11 @@ int main()
 	// 	cout<<endl;
 	// }
 	vector<int>result_paths(vertices+1,INT_MAX);
-    bfs(1, result_paths);
-    for(i=1; i <= vertices; i++) 
-    {
-        cout<<"shortest path to "<<i<<": "<<result_paths[i]<<endl;
-    }
+	bfs(1, result_paths);
+	for(i=1; i <= vertices; i++) 
+	{
+             cout<<"shortest path to "<<i<<": "<<result_paths[i]<<endl;
+        }
     return 0;
 }
 
