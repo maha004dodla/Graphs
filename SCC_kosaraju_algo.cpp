@@ -5,13 +5,13 @@ void DFS(int node,vector<int> adj[],vector<bool>&visited,vector<int>&l)
 {
     visited[node]=1;	
     for(auto i:adj[node])
+    {
+   	if(!visited[i])
    	{
-   		if(!visited[i])
-   		{
-   			DFS(i,adj,visited,l);
-   		}
+   		DFS(i,adj,visited,l);
+   	}
     }
-   	l.push_back(node);
+    l.push_back(node);
 }
 int main()
 {
@@ -26,34 +26,34 @@ int main()
 		cin>>u>>v;
 		adj[u].push_back(v);
 	}
-    vector<int>l;
-    for(i=0; i<vertices; i++)
-    {
-    	if(!visited[i])
-    	{
-    		DFS(i,adj,visited,l);
-    	}
-    }
-    reverse(l.begin(),l.end());
-    fill(visited.begin(), visited.end(), false);
-    vector<int>rev[vertices];
-    for(i=0; i<vertices; i++)
-    {
-    	for(auto j:adj[i])
-    	{
-    	    rev[j].push_back(i);
-    	}
-    }
-    int c=0;
-   	for(i=0; i<vertices; i++)
-  	{
+	vector<int>l;
+	for(i=0; i<vertices; i++)
+	{
+	    if(!visited[i])
+	    {
+		DFS(i,adj,visited,l);
+	    }
+	}
+	reverse(l.begin(),l.end());
+	fill(visited.begin(), visited.end(), false);
+	vector<int>rev[vertices];
+	for(i=0; i<vertices; i++)
+	{
+	    for(auto j:adj[i])
+	    {
+		rev[j].push_back(i);
+	    }
+	}
+	int c=0;
+	for(i=0; i<vertices; i++)
+	{
    	    if(!visited[l[i]])
-    	{
-            c++;
+	    {
+	        c++;
    	        DFS(l[i],rev,visited,l);
-   	    }
-   	}
-    cout<<c<<endl;	
+	    }
+	}
+	cout<<c<<endl;	
 }
 
 
